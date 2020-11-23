@@ -16,12 +16,7 @@ class _LoginPageState extends State<LoginPage> {
         body: Container(
             child: Stack(
               children: <Widget>[
-                Image.asset(
-                  'assets/images/background.jpg',
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.cover,
-                ),
+                Container(color: Colors.purple,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[

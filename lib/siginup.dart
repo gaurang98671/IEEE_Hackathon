@@ -1,5 +1,9 @@
+import 'package:appointment_app/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class RegisterScreen extends StatefulWidget {
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
@@ -9,6 +13,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
   String _user_name, _email, _password, _phone_number;
   String userId;
 
+  void signUp() async {
+
+    try {
+
+      print("Hello");
+      User user = (await FirebaseAuth.instance.createUserWithEmailAndPassword(email: _email, password: _password)).user;
+
+      userId=user.uid;
+
+      SharedPreferences pref=await SharedPreferences.getInstance();
+      await pref.setString('user_email', _email);
+      Navigator.push(context, MaterialPageRoute(
+          builder: (context)=>MyHomePage()
+      ));
+    }
+    catch (e) {
+      print(e.message);
+    }
+
+    FirebaseFirestore.instance.collection("Users").doc(userId).set(
+        {
+          'Name': _user_name,
+          'Phone Number': _phone_number,
+          'Verified': false,
+          'profile pic': 'none',
+          'email': _email
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,12 +49,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         body: Container(
             child: Stack(
               children: <Widget>[
-                Image.asset(
-                  'assets/images/background.jpg',
-                  width: double.infinity,
-                  height: double.infinity,
-                  fit: BoxFit.cover,
-                ),
+               Container(color: Colors.purple),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -164,7 +192,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             borderRadius: BorderRadius.all(
                                 Radius.circular(10))),
                         onPressed: () {
-                          //signUp();
+                          signUp();
                         },
                         child: Padding(
                           padding: const EdgeInsets.fromLTRB(60, 10, 60, 10),

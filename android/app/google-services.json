@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "997753266555",
+    "firebase_url": "https://covidappointmentapp.firebaseio.com",
+    "project_id": "covidappointmentapp",
+    "storage_bucket": "covidappointmentapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:997753266555:android:f5f7160e7ea05f4e5d9dde",
+        "android_client_info": {
+          "package_name": "com.example.appointment_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "997753266555-rrd0dna8c8buscoeoajblt3gbu1d3ggf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2CITxcjv5DVbhiXugd3o-3ex6qU3aICY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "997753266555-rrd0dna8c8buscoeoajblt3gbu1d3ggf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
