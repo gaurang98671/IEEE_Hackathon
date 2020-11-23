@@ -1,4 +1,5 @@
 
+import 'package:appointment_app/SplashScreen.dart';
 import 'package:appointment_app/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Title',
-      home: LoginPage(),
+      home: SplashScreen(),
     );
   }
 }
