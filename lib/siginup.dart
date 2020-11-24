@@ -24,6 +24,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
       SharedPreferences pref=await SharedPreferences.getInstance();
       await pref.setString('user_email', _email);
+      await pref.setString("user_id", userId);
       Navigator.push(context, MaterialPageRoute(
           builder: (context)=>MyHomePage()
       ));
@@ -32,7 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       print(e.message);
     }
 
-    FirebaseFirestore.instance.collection("Users").doc(userId).set(
+    FirebaseFirestore.instance.collection("UserA").doc(userId).set(
         {
           'Name': _user_name,
           'Phone Number': _phone_number,

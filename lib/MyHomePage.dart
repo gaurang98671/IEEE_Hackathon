@@ -1,3 +1,4 @@
+import 'package:appointment_app/Search.dart';
 import 'package:flutter/material.dart';
 import 'package:appointment_app/Profile.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
@@ -36,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
           },
           children: <Widget>[
 
-            Container(color: Colors.red,),
+            SearchPage(),
             Home(),
             Profile(),
 
